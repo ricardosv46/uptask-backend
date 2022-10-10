@@ -2,6 +2,7 @@ import nodemailer from 'nodemailer'
 export const emailRegistro = async ({ email, nombre, token }) => {
   const transport = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
+    secure: true, // true for 465, false for other ports
     port: process.env.EMAIL_PORT,
     auth: {
       user: process.env.EMAIL_USER,
